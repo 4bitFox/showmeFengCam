@@ -1,4 +1,5 @@
-# Show-me webcam: An open source, trustable and high quality webcam
+# Fork of Show-me webcam for my own, personal use. Please use the original!
+## Show-me webcam: An open source, trustable and high quality webcam
 
 [![Build/Release](https://github.com/showmewebcam/showmewebcam/workflows/Build/Release/badge.svg)](https://github.com/showmewebcam/showmewebcam/actions)
 [![License](https://img.shields.io/github/license/showmewebcam/showmewebcam?label=License)](https://github.com/showmewebcam/showmewebcam/blob/master/LICENSE)
