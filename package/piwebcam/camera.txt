@@ -173,7 +173,7 @@ auto_exposure_bias=12
 # 0: Average
 # 1: Center Weighted
 # 2: Spot
-#exposure_metering_mode=0
+exposure_metering_mode=1
 
 # scene_mode 0x009a091a (menu) : min=0 max=13 default=0 value=0
 # 0: None
