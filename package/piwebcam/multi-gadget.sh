@@ -1,5 +1,9 @@
 #!/bin/sh
 
+MANUFACTURER="Fabian C."
+PRODUCT="Fengcam"
+CONFIGURATION="Webcam"
+
 # Eventually we want to disable the serial interface by default
 # As it can be used as a persistence exploitation vector
 CONFIGURE_USB_SERIAL=false
@@ -34,11 +38,11 @@ mkdir -p configs/c.2
 mkdir -p configs/c.2/strings/0x409
 
 SERIAL=$(cat /sys/firmware/devicetree/base/serial-number)
-echo "$SERIAL"                > strings/0x409/serialnumber
-echo "Fabian C." > strings/0x409/manufacturer
-echo "FengCam"               > strings/0x409/product
-echo "Wabcam"               > configs/c.2/strings/0x409/configuration
-echo 500                      > configs/c.2/MaxPower
+echo "$SERIAL"        > strings/0x409/serialnumber
+echo $MANUFACTURER    > strings/0x409/manufacturer
+echo $PRODUCT         > strings/0x409/product
+echo $CONFIGURATION   > configs/c.2/strings/0x409/configuration
+echo 500              > configs/c.2/MaxPower
 
 config_usb_serial () {
   mkdir -p functions/acm.usb0
