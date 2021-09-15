@@ -64,6 +64,28 @@ __EOF__
 initial_turbo=10
 __EOF__
 		fi
+		
+		# Disable splash
+		if ! grep -qE '^disable_splash' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+disable_splash=1
+__EOF__
+		fi
+		
+		# Rotate display by 180°
+		if ! grep -qE '^display_lcd_rotate' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+display_lcd_rotate=2
+__EOF__
+		fi
+		
+		# GPIO Fan
+		if ! grep -qE '^dtoverlay=gpio-fan' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+dtoverlay=gpio-fan,gpiopin=9,temp=01000
+#dtoverlay=gpio-fan,gpiopin=21,temp=80000
+__EOF__
+		fi
 
 		# Inform the kernel about the filesystem and ro state
 		if ! grep -qE 'rootfstype=squashfs ro' "${BINARIES_DIR}/rpi-firmware/cmdline.txt"; then
