@@ -82,7 +82,7 @@ __EOF__
 		# GPIO Fan
 		if ! grep -qE '^dtoverlay=gpio-fan' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
-dtoverlay=gpio-fan,gpiopin=9,temp=01000
+dtoverlay=gpio-fan,gpiopin=11,temp=01000
 #dtoverlay=gpio-fan,gpiopin=21,temp=80000
 __EOF__
 		fi
